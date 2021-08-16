@@ -16,7 +16,9 @@ config :tradelab_assignment, TradelabAssignmentWeb.Endpoint,
   secret_key_base: "pUeaXJ1k/AX1EtMz94FIuriYPYp4Z76bcfiSRLpUmAYmN5tBpgiuWUjNa7l4eEWE",
   render_errors: [view: TradelabAssignmentWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: TradelabAssignment.PubSub,
-  live_view: [signing_salt: "zNFX6F8k"]
+  live_view: [signing_salt: "zNFX6F8k"],
+  symbols: ["ETHBTC", "BTCUSDT"],
+  crypto_base_url: "https://api.hitbtc.com/api/3/public/ticker/"
 
 # Configures Elixir's Logger
 config :logger, :console,

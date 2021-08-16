@@ -16,7 +16,8 @@ defmodule TradelabAssignmentWeb.Router do
   scope "/", TradelabAssignmentWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/currency/all", CurrencyController, :get_price
+    get "/currency/:symbol", CurrencyController, :get_currency_price
   end
 
   # Other scopes may use custom stacks.

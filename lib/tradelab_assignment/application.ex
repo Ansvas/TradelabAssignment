@@ -14,9 +14,10 @@ defmodule TradelabAssignment.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: TradelabAssignment.PubSub},
       # Start the Endpoint (http/https)
-      TradelabAssignmentWeb.Endpoint
+      TradelabAssignmentWeb.Endpoint,
       # Start a worker by calling: TradelabAssignment.Worker.start_link(arg)
       # {TradelabAssignment.Worker, arg}
+      {Redix, name: :redix}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -3,7 +3,7 @@ defmodule TradelabAssignmentWeb.CryptoPriceHelper do
   @symbols Application.get_env(:tradelab_assignment, TradelabAssignmentWeb.Endpoint)[:symbols]
 
   def get_price_from_api(symbol) do
-    url = @crypto_base_url
+    url = @crypto_base_url <> symbol
 
     {:ok, response} = HTTPoison.get(url, [], params: [])
     data= Poison.decode!(response.body)

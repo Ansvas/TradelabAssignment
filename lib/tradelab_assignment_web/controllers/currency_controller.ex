@@ -23,24 +23,15 @@ defmodule TradelabAssignmentWeb.CurrencyController do
     |> json(%{data: data})
   end
 
-  def check_for_valid_symbol(symbol) do
-    symbol in @symbols
-  end
-
   def fetch_all_data() do
     Enum.reduce(@symbols, %{}, fn symbol, accumulator ->
-      data =
-      %{
-        id: symbol,
-        ask: Redix.command!(:redix, ["GET", symbol<>"-ask"]),
-        bid: Redix.command!(:redix, ["GET", symbol<>"-bid"]),
-        last: Redix.command!(:redix, ["GET", symbol<>"-last"]),
-        open: Redix.command!(:redix, ["GET", symbol<>"-open"]),
-        low: Redix.command!(:redix, ["GET", symbol<>"-low"]),
-        high: Redix.command!(:redix, ["GET", symbol<>"-high"])
-      }
+      data = fetch_data(symbol)
       Map.put(accumulator, symbol, data)
     end)
+  end
+
+  def check_for_valid_symbol(symbol) do
+    symbol in @symbols
   end
 
   def fetch_data(symbol) do

@@ -17,7 +17,8 @@ defmodule TradelabAssignment.Application do
       TradelabAssignmentWeb.Endpoint,
       # Start a worker by calling: TradelabAssignment.Worker.start_link(arg)
       # {TradelabAssignment.Worker, arg}
-      {Redix, name: :redix}
+      {Redix, name: :redix},
+      TradelabAssignmentWeb.Periodically
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

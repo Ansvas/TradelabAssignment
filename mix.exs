@@ -47,7 +47,8 @@ defmodule TradelabAssignment.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:redix, "~> 1.1"},
       {:httpoison, "~> 1.7"},
-      {:poison, "~> 5.0"}
+      {:poison, "~> 5.0"},
+      {:websockex, "~> 0.4.3"}
     ]
   end
 
